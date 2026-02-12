@@ -17,7 +17,7 @@ import {
   Bot,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import BezierLine from "./BezierLine";
+import BezierLine from "../BezierLine";
 
 const skills = [
   {

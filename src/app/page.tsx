@@ -2,12 +2,13 @@
 
 import { useEffect } from "react"
 import { Header } from "@/src/components/header"
-import { Hero } from "@/src/components/hero"
-import { Skills } from "@/src/components/skills"
-import { ParallaxSection } from "@/src/components/parallax-section"
-import { Projects } from "@/src/components/projects"
-import { Contact } from "@/src/components/contact"
+import { Hero } from "@/src/components/pages/hero"
+import { Skills } from "@/src/components/pages/skills"
+import { ParallaxSection } from "@/src/components/pages/parallax-section"
+import { Projects } from "@/src/components/pages/projects"
+import { Contact } from "@/src/components/pages/contact"
 import { Footer } from "@/src/components/footer"
+import Profile from "../components/pages/profile"
 
 export default function Home() {
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <Profile />
       <Skills />
       <ParallaxSection />
       <Projects />

@@ -6,8 +6,8 @@ import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import BlurryCursor from "./BurryCursor";
-import MagneticCursor from "./MagneticCursor";
+import BlurryCursor from "../BurryCursor";
+import MagneticCursor from "../MagneticCursor";
 
 export function Hero() {
   const container = useRef(null);
