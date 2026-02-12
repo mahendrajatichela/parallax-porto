@@ -4,17 +4,21 @@ import styles from "./../../app/profile.module.scss";
 import Image from "next/image";
 import gsap from "gsap";
 import {
-  photo1, photo2, photo3, photo4,
-  photo5, photo6, photo7, photo8,
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
+  photo6,
+  photo7,
+  photo8,
 } from "@/src/photos";
 
 export default function Profile() {
-  // 1. Definisikan Refs dengan tipe HTMLDivElement
   const plane1 = useRef<HTMLDivElement>(null);
   const plane2 = useRef<HTMLDivElement>(null);
   const plane3 = useRef<HTMLDivElement>(null);
 
-  // 2. Gunakan useRef untuk variabel mutable agar tidak memicu re-render
   const requestAnimationFrameId = useRef<number | null>(null);
   const xForce = useRef(0);
   const yForce = useRef(0);
@@ -38,14 +42,16 @@ export default function Profile() {
     xForce.current = lerp(xForce.current, 0, easing);
     yForce.current = lerp(yForce.current, 0, easing);
 
-    // GSAP Set untuk performa transform yang mulus
-    gsap.set(plane1.current, { x: `+=${xForce.current}`, y: `+=${yForce.current}` });
+    gsap.set(plane1.current, {
+      x: `+=${xForce.current}`,
+      y: `+=${yForce.current}`,
+    });
     gsap.set(plane2.current, {
-      x: `+=${xForce.current * 0.5}`,
+      x: `+=${xForce.current * 0.9}`,
       y: `+=${yForce.current * 0.5}`,
     });
     gsap.set(plane3.current, {
-      x: `+=${xForce.current * 0.25}`,
+      x: `+=${xForce.current * 0.1}`,
       y: `+=${yForce.current * 0.25}`,
     });
 
@@ -59,7 +65,6 @@ export default function Profile() {
     }
   };
 
-  // 3. Cleanup saat komponen unmount
   useEffect(() => {
     return () => {
       if (requestAnimationFrameId.current) {
@@ -69,30 +74,35 @@ export default function Profile() {
   }, []);
 
   return (
-    <main onMouseMove={manageMouseMove} className={styles.main}>
+    <main
+      onMouseMove={manageMouseMove}
+      className={styles.main}
+    >
       <div className={styles.title}>
-        <h1>Floating Images Gallery</h1>
-        <p>Next.js and GSAP</p>
+        <p className="z-2 text-emerald-900 font-semibold">
+          Over 4 years, I design and build scalable, high-performance web
+          applications using Next.js, React, Vue.js, and TypeScript. With strong
+          expertise in RESTful API integration, frontend architecture, and
+          performance optimization,
+        </p>
       </div>
 
       {/* Plane 1: Gerakan paling cepat (depan) */}
       <div ref={plane1} className={styles.plane}>
-        <Image src={photo1} alt="image" width={300} placeholder="blur" />
-        <Image src={photo2} alt="image" width={200} placeholder="blur" />
-        <Image src={photo7} alt="image" width={225} placeholder="blur" />
+        <Image src={photo2} alt="image 1" width={150} placeholder="blur" />
+        <Image src={photo1} alt="image 2" width={200} placeholder="blur" />
+        <Image src={photo7} alt="image 3" width={125} placeholder="blur" />
       </div>
-
       {/* Plane 2: Gerakan sedang (tengah) */}
       <div ref={plane2} className={styles.plane}>
-        <Image src={photo4} alt="image" width={250} placeholder="blur" />
-        <Image src={photo6} alt="image" width={200} placeholder="blur" />
-        <Image src={photo8} alt="image" width={225} placeholder="blur" />
+        <Image src={photo8} alt="image 4" width={170} placeholder="blur" />
+        <Image src={photo4} alt="image 5" width={150} placeholder="blur" />
+        <Image src={photo5} alt="image 8" width={200} placeholder="blur" className="left-72 -top-32" />
       </div>
-
       {/* Plane 3: Gerakan lambat (belakang/parallax jauh) */}
       <div ref={plane3} className={styles.plane}>
-        <Image src={photo3} alt="image" width={250} placeholder="blur" />
-        <Image src={photo5} alt="image" width={300} placeholder="blur" />
+        <Image src={photo3} alt="image 7" width={150} placeholder="blur" className="top-6 left-4" />
+        <Image src={photo6} alt="image 6" width={150} placeholder="blur" className="-top-32 left-1/2" />
       </div>
     </main>
   );
