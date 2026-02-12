@@ -72,7 +72,7 @@ export default function BezierLine({ setBackground, color = "#a3e635" }: BezierL
   };
 
   return (
-    <div className="relative w-full h-[100px] flex items-center bg-transparent">
+    <div className="relative w-full h-[80px] flex items-center bg-transparent">
       {/* Area interaksi transparan agar mudah terkena mouse */}
       <div 
         onMouseMove={manageMouseMove} 
@@ -80,7 +80,7 @@ export default function BezierLine({ setBackground, color = "#a3e635" }: BezierL
         className="relative z-10 w-full h-10 bg-transparent cursor-none"
       />
       
-      <svg className="absolute w-full h-[200px] pointer-events-none overflow-visible">
+      <svg className="absolute w-full h-[100px] pointer-events-none overflow-visible">
         <path 
           ref={path} 
           stroke={color}

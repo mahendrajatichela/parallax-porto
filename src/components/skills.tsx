@@ -61,7 +61,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 md:py-32">
       <div className="mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center">
           <div className="relative">
             <Bot className="text-xl text-emerald-700 opacity-50 -top-10 absolute left-2/3 rotate-12 transform -translate-x-1/2 -z-10 w-20 h-20" />
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
@@ -73,7 +73,7 @@ export function Skills() {
           </p>
         </div>
 
-        <BezierLine color="#a3e635" />
+        <BezierLine color="#d1d5db" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-4/5 m-auto">
           {skills.map((skill, index) => {

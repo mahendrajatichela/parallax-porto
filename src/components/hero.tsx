@@ -112,7 +112,7 @@ export function Hero() {
                 className="text-emerald-600  hover:text-white hover:bg-transparent"
               >
                 <a
-                  href="https://github.com"
+                  href="https://github.com/mahendrajatichela"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -128,7 +128,7 @@ export function Hero() {
                 className="text-emerald-600 hover:text-white hover:bg-transparent"
               >
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/chela-mahendrajati/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -143,7 +143,7 @@ export function Hero() {
                 asChild
                 className="text-emerald-600 hover:text-white hover:bg-transparent"
               >
-                <a href="mailto:hello@example.com">
+                <a href="mailto:chelamahendra@gmail.com">
                   <Mail className="h-5 w-5" />
                 </a>
               </Button>
