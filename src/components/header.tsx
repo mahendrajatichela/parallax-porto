@@ -19,7 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-b-xl shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-emerald-800">
-          Portfolio
+          PorChe
         </Link>
 
         {/* Desktop Navigation */}
