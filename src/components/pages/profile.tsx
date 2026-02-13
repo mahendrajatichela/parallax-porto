@@ -13,6 +13,8 @@ import {
   photo7,
   photo8,
 } from "@/src/photos";
+import { motion } from "framer-motion";
+import { SquareCode } from "lucide-react";
 
 export default function Profile() {
   const plane1 = useRef<HTMLDivElement>(null);
@@ -74,36 +76,93 @@ export default function Profile() {
   }, []);
 
   return (
-    <main
-      onMouseMove={manageMouseMove}
-      className={styles.main}
-    >
-      <div className={styles.title}>
-        <p className="z-2 text-emerald-900 font-semibold">
-          Over 4 years, I design and build scalable, high-performance web
-          applications using Next.js, React, Vue.js, and TypeScript. With strong
-          expertise in RESTful API integration, frontend architecture, and
-          performance optimization,
-        </p>
-      </div>
+    <main onMouseMove={manageMouseMove} className={styles.main}>
+      <motion.div
+        key="profile"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <div className="border-2 border-emerald-500 w-[90vw] h-[90vh] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-50"></div>
+        <div className="border-2 border-emerald-900 w-[90vw] h-[90vh] absolute -translate-x-1/2 -translate-y-1/2 top-[calc(50%+10px)] left-[calc(50%+20px)] z-50"></div>
 
-      {/* Plane 1: Gerakan paling cepat (depan) */}
-      <div ref={plane1} className={styles.plane}>
-        <Image src={photo2} alt="image 1" width={150} placeholder="blur" />
-        <Image src={photo1} alt="image 2" width={200} placeholder="blur" />
-        <Image src={photo7} alt="image 3" width={125} placeholder="blur" />
-      </div>
-      {/* Plane 2: Gerakan sedang (tengah) */}
-      <div ref={plane2} className={styles.plane}>
-        <Image src={photo8} alt="image 4" width={170} placeholder="blur" />
-        <Image src={photo4} alt="image 5" width={150} placeholder="blur" />
-        <Image src={photo5} alt="image 8" width={200} placeholder="blur" className="left-72 -top-32" />
-      </div>
-      {/* Plane 3: Gerakan lambat (belakang/parallax jauh) */}
-      <div ref={plane3} className={styles.plane}>
-        <Image src={photo3} alt="image 7" width={150} placeholder="blur" className="top-6 left-4" />
-        <Image src={photo6} alt="image 6" width={150} placeholder="blur" className="-top-32 left-1/2" />
-      </div>
+        <SquareCode className=" opacity-25 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-48 h-48 rotate-12 text-emerald-400" />
+        <div className={styles.title}>
+          <p className="z-2 text-emerald-900 font-semibold">
+            Over 4 years, I design and build scalable, high-performance web
+            applications using Next.js, React, Vue.js, and TypeScript. With
+            strong expertise in RESTful API integration, frontend architecture,
+            and performance optimization,
+          </p>
+        </div>
+
+        {/* Plane 1: Gerakan paling cepat (depan) */}
+        <div ref={plane1} className={`${styles.plane} hidden lg:block`}>
+          <Image
+            src={photo2}
+            alt="image 1"
+            width={150}
+            placeholder="blur"
+            className="bottom-0 left-20"
+          />
+          <Image
+            src={photo1}
+            alt="image 2"
+            width={170}
+            placeholder="blur"
+            className="bottom-1 left-2/3"
+          />
+          <Image
+            src={photo7}
+            alt="image 3"
+            width={125}
+            placeholder="blur"
+            className="bottom-3 left-1/2"
+          />
+        </div>
+        {/* Plane 2: Gerakan sedang (tengah) */}
+        <div ref={plane2} className={`${styles.plane} hidden lg:block`}>
+          <Image
+            src={photo8}
+            alt="image 4"
+            width={170}
+            placeholder="blur"
+            className="top-6 right-10"
+          />
+          <Image
+            src={photo4}
+            alt="image 5"
+            width={150}
+            placeholder="blur"
+            className=" bottom-0 right-4"
+          />
+          <Image
+            src={photo5}
+            alt="image 8"
+            width={200}
+            placeholder="blur"
+            className="left-72 -top-32"
+          />
+        </div>
+        {/* Plane 3: Gerakan lambat (belakang/parallax jauh) */}
+        <div ref={plane3} className={`${styles.plane} hidden lg:block`}>
+          <Image
+            src={photo3}
+            alt="image 7"
+            width={150}
+            placeholder="blur"
+            className="top-6 left-4"
+          />
+          <Image
+            src={photo6}
+            alt="image 6"
+            width={150}
+            placeholder="blur"
+            className="-top-32 left-1/2"
+          />
+        </div>
+      </motion.div>
     </main>
   );
 }

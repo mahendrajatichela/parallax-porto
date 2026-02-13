@@ -58,7 +58,6 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <Button size="sm" className="w-full">Get in Touch</Button>
           </nav>
         </div>
       )}

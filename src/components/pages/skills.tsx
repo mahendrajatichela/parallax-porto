@@ -68,7 +68,7 @@ export function Skills() {
               Skills & Expertise
             </h2>
           </div>
-          <p className="text-lg text-emerald-800 font-neutral max-w-2xl mx-auto">
+          <p className="text-lg text-emerald-800 font-neutral max-w-2xl mx-auto px-10">
             Technologies and tools I use to bring ideas to life
           </p>
         </div>
@@ -83,7 +83,7 @@ export function Skills() {
                 key={skill.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="h-full hover:scale-105 transition-transform  cursor-pointer bg-gradient-to-br from-green-300 via-emerald-300 to-teal-500 text-white hover:bg-gradient-to-br from-green-500 via-emerald-600 to-teal-900 shadow-lg hover:shadow-xl">
