@@ -14,7 +14,7 @@ import {
   photo8,
 } from "@/src/photos";
 import { motion } from "framer-motion";
-import { SquareCode } from "lucide-react";
+import { MessageCircleCode } from "lucide-react";
 
 export default function Profile() {
   const plane1 = useRef<HTMLDivElement>(null);
@@ -85,9 +85,9 @@ export default function Profile() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <div className="border-2 border-emerald-500 w-[90vw] h-[90vh] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-50"></div>
-        <div className="border-2 border-emerald-900 w-[90vw] h-[90vh] absolute -translate-x-1/2 -translate-y-1/2 top-[calc(50%+10px)] left-[calc(50%+20px)] z-50"></div>
+        <div className="border-2 border-emerald-900 w-[90vw] h-[90vh] absolute -translate-x-1/2 -translate-y-1/2 top-[calc(50%+20px)] left-[calc(50%+10px)] z-50"></div>
 
-        <SquareCode className=" opacity-25 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-48 h-48 rotate-12 text-emerald-400" />
+        <MessageCircleCode className=" opacity-25 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-48 h-48 text-emerald-400" />
         <div className={styles.title}>
           <p className="z-2 text-emerald-900 font-semibold">
             Over 4 years, I design and build scalable, high-performance web

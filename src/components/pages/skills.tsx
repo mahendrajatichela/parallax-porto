@@ -73,8 +73,8 @@ export function Skills() {
           </p>
         </div>
 
-        <BezierLine color="#d1d5db" />
-
+        {/* <BezierLine color="#d1d5db" /> */}
+        <br />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-4/5 m-auto">
           {skills.map((skill, index) => {
             const Icon = skill.icon;

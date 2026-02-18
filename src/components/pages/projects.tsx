@@ -1,82 +1,115 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card"
-import { Badge } from "@/src/components/ui/badge"
-import { Button } from "@/src/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
-import { motion } from "framer-motion"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { FolderGit2 } from "lucide-react";
+import { motion } from "framer-motion";
+import BezierLine from "../BezierLine";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce application with cart management, checkout flow, and payment integration using Stripe.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
-    github: "#",
+    title: "IFG Life - OneForce Platform",
+    description:
+      "Major alteration and enhancement of the OneForce Platform for IFG Life.",
+    technologies: ["Next.js", "Redux Toolkit", "Tailwind CSS", "Typescript"],
+    dateRange: "October 2025 - December 2025",
+    assosiation: "Digital Center",
     demo: "#",
   },
   {
-    title: "Analytics Dashboard",
-    description: "Real-time analytics dashboard with interactive charts, data visualization, and comprehensive metrics tracking.",
-    technologies: ["React", "Chart.js", "Redux", "REST API"],
-    github: "#",
+    title: "Bahana (KIK-EBA)",
+    description:
+      "Collective Investment Contract – Asset-Backed Securities implementation.",
+    technologies: ["Next.js", "Zustand", "Tailwind CSS", "Typescript"],
+    dateRange: "April 2025 - September 2025",
+    assosiation: "Digital Center",
     demo: "#",
   },
   {
-    title: "Social Media App",
-    description: "Interactive social platform with real-time updates, user authentication, and profile management.",
-    technologies: ["Next.js", "Firebase", "WebSocket", "shadcn/ui"],
-    github: "#",
+    title: "Maybank - Octopus Project",
+    description:
+      "Major project implementation for Maybank's digital transformation.",
+    technologies: ["JSP", "JQuery", "Bootstrap"],
+    dateRange: "March 2024 - March 2025",
+    assosiation: "Digital Center",
     demo: "#",
   },
   {
-    title: "Task Management Tool",
-    description: "Collaborative task management application with drag-and-drop, team features, and productivity tracking.",
-    technologies: ["React", "TypeScript", "Zustand", "DnD Kit"],
-    github: "#",
+    title: "Revamp KB Bank",
+    description:
+      "Complete revamp and modernization of KB Bank's digital platform.",
+    technologies: ["JSP", "JQuery", "Bootstrap", "JexFrame"],
+    dateRange: "January 2024 - March 2024",
+    assosiation: "Digital Center",
     demo: "#",
   },
   {
-    title: "Weather Application",
-    description: "Beautiful weather app with location detection, forecasts, and animated weather conditions.",
-    technologies: ["Next.js", "OpenWeather API", "Framer Motion"],
-    github: "#",
+    title: "OML Innovoice",
+    description: "Development and implementation of OML Innovoice platform.",
+    technologies: ["React.js", "Tailwind CSS"],
+    dateRange: "January 2023 - December 2023",
+    assosiation: "Digital Center",
     demo: "#",
   },
   {
-    title: "Portfolio CMS",
-    description: "Content management system for portfolio websites with markdown support and image optimization.",
-    technologies: ["Next.js", "MDX", "Contentlayer", "Tailwind"],
-    github: "#",
+    title: "Maybank - AA Project",
+    description: "Implementation for Maybank's digital transformation.",
+    technologies: ["JSP", "JQuery", "Bootstrap"],
+    dateRange: "August 2022 - December 2022",
+    assosiation: "Digital Center",
     demo: "#",
   },
-]
+  {
+    title: "Renstra Aplication",
+    description:
+      "Development and implementation of Renstra Application platform.",
+    technologies: ["Nuxt.js", "Vue.js", "Tailwind CSS", "Typescript"],
+    dateRange: "January 2022 - July 2022",
+    assosiation: "Lembaga Pendidikan Al Firdaus",
+    demo: "#",
+  },
+];
 
 export function Projects() {
   return (
-    <section id="projects" className="container py-24 md:py-32 bg-muted/50">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {/* A selection of recent work showcasing my skills and creativity */}
-            Coming Soon
-          </p>
+    <section id="projects" className="py-24 md:py-32 bg-muted/50">
+      <div className="mx-auto">
+        <div className="text-center">
+          <div className="relative">
+            <FolderGit2 className="text-xl text-emerald-700 opacity-50 -top-10 absolute left-[35%] rotate-6 transform -translate-x-1/2 -z-10 w-20 h-20" />
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              Featured Projects
+            </h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* {projects.map((project, index) => (
+        {/* <BezierLine color="#d1d5db" /> */}
+        <br />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-4/5 m-auto">
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
+                  <CardDescription className="text-emerald-700 font-semibold">
+                    {project.assosiation}
+                  </CardDescription>
+                  <CardDescription className="text-gray-500 ">
+                    {project.dateRange}
+                  </CardDescription>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1">
@@ -88,25 +121,38 @@ export function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex gap-2">
-                  <Button variant="outline" size="sm" className="flex-1" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                {/* <CardFooter className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    asChild
+                  >
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" />
                       Code
                     </a>
                   </Button>
                   <Button size="sm" className="flex-1" asChild>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Demo
                     </a>
                   </Button>
-                </CardFooter>
+                </CardFooter> */}
               </Card>
             </motion.div>
-          ))} */}
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
