@@ -3,6 +3,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export function ParallaxSection() {
   const container = useRef(null);
@@ -33,23 +34,35 @@ export function ParallaxSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-8">
+      <div className="relative w-full z-10 text-center text-white px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Coming Soon
-            <br />
-            {/* <span className="text-primary">Extraordinary</span> */}
-          </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            {/* Bringing ideas to life with modern web technologies and creative
-            design solutions */}
-            ...
-          </p>
+          {/* <div className="flex w-full h-full">
+            <div className="basis-1/3 items-center w-full h-full flex-row space-y-5">
+              <div>
+                <Button id="button-1" variant="secondary" className="w-1/2 rounded-full text-green-100 bg-green-700/50 hover:bg-green-700/80">
+                  Login
+                </Button>
+              </div>
+              <div>
+                <Button id="button-2" variant="default" className="w-1/2 rounded-full text-green-100 bg-green-700/50 hover:bg-green-700/80">
+                  Form
+                </Button>
+              </div>
+              <div>
+                <Button id="button-3" variant="secondary" className="w-1/2 rounded-full text-green-100 bg-green-700/50 hover:bg-green-700/80">
+                  Form
+                </Button>
+              </div>
+            </div>
+            <div className="basis-2/3 items-center w-full h-full bg-gray-900/40 rounded-xl p-4">
+              2
+            </div>
+          </div> */}
         </motion.div>
       </div>
     </div>
