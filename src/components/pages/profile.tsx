@@ -90,10 +90,12 @@ export default function Profile() {
         <MessageCircleCode className=" opacity-25 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-48 h-48 text-emerald-400" />
         <div className={styles.title}>
           <p className="z-2 text-emerald-900 font-semibold">
-            Over 4 years, I design and build scalable, high-performance web
-            applications using Next.js, React, Vue.js, and TypeScript. With
-            strong expertise in RESTful API integration, frontend architecture,
-            and performance optimization,
+            Frontend Engineer with 4 years of experience delivering 8+ web
+            applications across fintech, insurance, telecommunication, and other
+            diverse sectors. Proven track record of working across versatile
+            tech stacks, including React, Next.js, Vue.js, and Java, utilizing
+            JavaScript and TypeScript. Detail oriented and naturally curious
+            about emerging technologies, with strong analytical thinking.
           </p>
         </div>
 

@@ -10,6 +10,7 @@ import { Contact } from "@/src/components/pages/contact";
 import { Footer } from "@/src/components/footer";
 import Profile from "../components/pages/profile";
 import StickyCursor from "../components/StickyCursor";
+import { Play } from "../components/pages/play-with-me";
 
 export default function Home() {
   useEffect(() => {
@@ -40,8 +41,10 @@ export default function Home() {
       <Hero />
       <Profile />
       <Skills />
-      <ParallaxSection />
+
+      {/* <Play /> */}
       <Projects />
+      <ParallaxSection />
       <Contact />
       <Footer />
     </main>
