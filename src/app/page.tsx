@@ -2,15 +2,17 @@
 
 import { useEffect } from "react";
 import { Header } from "@/src/components/header";
-import { Hero } from "@/src/components/pages/hero";
-import { Skills } from "@/src/components/pages/skills";
-import { ParallaxSection } from "@/src/components/pages/parallax-section";
-import { Projects } from "@/src/components/pages/projects";
-import { Contact } from "@/src/components/pages/contact";
+// import { Hero } from "@/src/components/pages/hero";
+// import { Skills } from "@/src/components/pages/skills";
+// import { ParallaxSection } from "@/src/components/pages/parallax-section";
+// import { Projects } from "@/src/components/pages/projects";
+// import { Contact } from "@/src/components/pages/contact";
 import { Footer } from "@/src/components/footer";
 import Profile from "../components/pages/profile";
 import StickyCursor from "../components/StickyCursor";
 import { Play } from "../components/pages/play-with-me";
+import { Landing } from "../components/pages/new-theme/landing";
+import { Contact } from "../components/pages/new-theme/contact";
 
 export default function Home() {
   useEffect(() => {
@@ -38,15 +40,17 @@ export default function Home() {
     <main className="min-h-screen">
       <StickyCursor />
       <Header />
-      <Hero />
+      <Landing />
+      <Contact />
+      {/* <Hero />
       <Profile />
       <Skills />
 
-      {/* <Play /> */}
       <Projects />
-      <ParallaxSection />
-      <Contact />
+      <ParallaxSection /> 
+      <Contact /> */}
       <Footer />
+      {/* <Play /> */}
     </main>
   );
 }

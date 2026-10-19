@@ -59,6 +59,11 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        montserrat: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
+        "space-grotesk": ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
+        arimo: ["var(--font-arimo)", "Arimo", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
