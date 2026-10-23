@@ -99,18 +99,22 @@ const projects = [
   },
 ];
 
+import { useLanguage } from "@/src/context/language-context";
+
 export function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="projects"
       className="py-24 md:py-32 bg-gradient-to-b from-[#2a0810] to-[#1a1a1e] text-slate-100"
     >
-      <div className="mx-auto w-3/4">
+      <div className="mx-auto md:w-3/4">
         <div className="text-center">
           <div className="relative">
             <FolderGit2 className="text-xl text-red-600/40 opacity-50 -top-10 absolute left-[35%] rotate-6 transform -translate-x-1/2 -z-10 w-20 h-20" />
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-red-500 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-              Featured Projects
+              {t.projects.title}
             </h2>
           </div>
         </div>
@@ -119,7 +123,7 @@ export function Projects() {
         <br />
         <div>
           <Accordion defaultValue={[]} className="pt-5 px-5">
-            {projects.map((project, index) => (
+            {t.projects.items.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}

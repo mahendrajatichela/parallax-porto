@@ -12,7 +12,11 @@ import { Mail, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import MagneticCursor from "../../MagneticCursor";
 
+import { useLanguage } from "@/src/context/language-context";
+
 export function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="contact"
@@ -21,11 +25,10 @@ export function Contact() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-primary via-amber-400 to-yellow-300 bg-clip-text text-transparent">
-            Get In Touch
+            {t.contact.title}
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            I'm always open to new opportunities and collaborations. Feel free
-            to reach out!
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -38,7 +41,7 @@ export function Contact() {
           <Card className="shadow-xl bg-gradient-to-br from-[#2f0a10] via-red-950 to-[#180407] backdrop-blur-md border border-amber-400/30">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl font-bold bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-300 bg-clip-text text-transparent">
-                Let's Work Together
+                {t.contact.cardTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -51,7 +54,7 @@ export function Contact() {
                   >
                     <a href="mailto:chelamahendra@gmail.com">
                       <Mail className="mr-2 h-5 w-5 text-amber-400" />
-                      Send me an email
+                      {t.contact.sendEmail}
                     </a>
                   </Button>
                 </MagneticCursor>
@@ -59,7 +62,7 @@ export function Contact() {
 
               <div className="border-t border-slate-700/60 pt-6">
                 <p className="text-center text-sm text-slate-400 mb-4">
-                  Or connect with me on social media
+                  {t.contact.socialText}
                 </p>
                 <div className="flex justify-center gap-4">
                   <MagneticCursor>

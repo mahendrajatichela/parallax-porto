@@ -2,8 +2,10 @@
 
 import { Github, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles } from "lucide-react"
 import MagneticCursor from "./MagneticCursor"
+import { useLanguage } from "../context/language-context"
 
 export function Footer() {
+  const { t } = useLanguage()
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -56,8 +58,8 @@ export function Footer() {
                 Portfolio
               </span>
             </div>
-            <p className="text-sm text-slate-400  leading-relaxed">
-              Crafting immersive, interactive web experiences with modern architecture, dynamic motion, and bold design.
+            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
+              {t.footer.tagline}
             </p>
             {/* Status Indicator */}
             <div className="inline-flex items-center gap-2 text-xs text-slate-400 bg-zinc-900/80 border border-slate-800 rounded-full px-3 py-1.5 shadow-inner">
@@ -65,7 +67,7 @@ export function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
               </span>
-              <span>Available for freelance & full-time roles</span>
+              <span>{t.footer.status}</span>
             </div>
           </div>
 
@@ -73,7 +75,7 @@ export function Footer() {
           <div className="space-y-4 md:text-right flex flex-col md:items-end justify-between">
             <div className="space-y-3">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono">
-                Connect With Me
+                {t.footer.connectWithMe}
               </h3>
               <div className="flex gap-2.5 md:justify-end">
                 {socialLinks.map((social) => {
@@ -101,7 +103,7 @@ export function Footer() {
                 onClick={scrollToTop}
                 className="inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium bg-zinc-900/90 border border-slate-700/60 text-slate-300 hover:text-amber-300 hover:border-red-500/50 hover:bg-red-950/30 shadow-sm"
               >
-                <span>Back to top</span>
+                <span>{t.footer.backToTop}</span>
                 <ArrowUp className="h-3.5 w-3.5 text-amber-400" />
               </button>
             </MagneticCursor>
@@ -114,11 +116,11 @@ export function Footer() {
             <span>© 2026</span>
             <span className="font-semibold text-amber-400">Chela Mahendrajati</span>
             <span className="text-slate-600">•</span>
-            <span>All rights reserved.</span>
+            <span>{t.footer.allRightsReserved}</span>
           </p>
 
           <p className="flex items-center gap-1 text-slate-400">
-            <span>Build with</span>
+            <span>{t.footer.builtWith}</span>
             <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500" />
             <span className="text-slate-300 font-medium">Next.js, Tailwind CSS, and shadcn/ui.</span>
           </p>

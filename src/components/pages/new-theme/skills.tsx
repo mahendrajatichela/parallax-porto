@@ -24,7 +24,11 @@ const skills = [
   },
 ];
 
+import { useLanguage } from "@/src/context/language-context";
+
 export function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="skills"
@@ -39,7 +43,7 @@ export function Skills() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-red-500 via-amber-400 to-amber-200 bg-clip-text text-transparent"
           >
-            Skills & Expertise
+            {t.skills.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, x: -40 }}
@@ -48,12 +52,12 @@ export function Skills() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-sm sm:text-base md:text-lg text-amber-400/90 font-medium mt-2"
           >
-            Technologies and tools I use to bring ideas to life
+            {t.skills.subtitle}
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto">
-          {skills.map((skill, index) => {
+          {t.skills.items.map((skill, index) => {
             const borderClasses =
               index === 0
                 ? "border-b md:border-r border-amber-400/60 pb-8 md:pb-12 md:pr-12"

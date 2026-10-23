@@ -7,15 +7,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 import MagneticCursor from "../../MagneticCursor";
+import { useLanguage } from "@/src/context/language-context";
 
 export function Landing() {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
+  const { t } = useLanguage();
 
   return (
     <section
@@ -80,7 +76,7 @@ export function Landing() {
               variant="secondary"
               className="mb-4 backdrop-blur-sm border-muted text-muted bg-muted/20"
             >
-              Frontend Developer
+              {t.landing.role}
             </Badge>
           </motion.div>
 
@@ -150,7 +146,7 @@ export function Landing() {
                   className="bg-transparent hover:bg-gradient-to-br hover:from-primary hover:via-red-950 hover:to-primary text-muted/70 hover:text-white shadow-none hover:shadow-primary/40 hover:shadow-xl hover:border hover:border-primary/50"
                 >
                   <a href="#projects">
-                    Let's Go <ArrowRight className="ml-2 h-4 w-4 rotate-90" />
+                    {t.landing.letsGo} <ArrowRight className="ml-2 h-4 w-4 rotate-90" />
                   </a>
                 </Button>
               </MagneticCursor>

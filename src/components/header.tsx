@@ -7,9 +7,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MagneticCursor from "./MagneticCursor";
 
+import { useLanguage } from "../context/language-context";
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,10 +31,10 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: t.nav.about, href: "#about" },
+    { name: t.nav.skills, href: "#skills" },
+    { name: t.nav.projects, href: "#projects" },
+    { name: t.nav.contact, href: "#contact" },
   ];
 
   return (
@@ -69,7 +72,7 @@ export function Header() {
             </MagneticCursor>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-end gap-2">
+            <nav className="hidden md:flex items-center gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}

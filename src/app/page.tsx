@@ -16,6 +16,9 @@ import { Contact } from "../components/pages/new-theme/contact";
 import { Projects } from "../components/pages/new-theme/projects";
 import { Skills } from "../components/pages/new-theme/skills";
 
+import { LanguageProvider } from "../context/language-context";
+import { LanguageToggle } from "../components/LanguageToggle";
+
 export default function Home() {
   useEffect(() => {
     // Smooth scroll setup
@@ -39,22 +42,17 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#1a1a1e]">
-      <StickyCursor />
-      <Header />
-      <Landing />
-      <Projects />
-      <Skills />
-      <Contact />
-      {/* <Hero />
-      <Profile />
-      <Skills />
-
-      <Projects />
-      <ParallaxSection /> 
-      <Contact /> */}
-      <Footer />
-      {/* <Play /> */}
-    </main>
+    <LanguageProvider>
+      <main className="min-h-screen bg-[#1a1a1e]">
+        <StickyCursor />
+        <LanguageToggle />
+        <Header />
+        <Landing />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </main>
+    </LanguageProvider>
   );
 }
