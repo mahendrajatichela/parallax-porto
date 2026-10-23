@@ -20,8 +20,13 @@ export function Landing() {
   return (
     <section
       ref={container}
-      className="relative h-screen overflow-hidden backdrop-filter backdrop-sepia bg-gradient-to-tr from-secondary via-secondary to-primary/70 bg-blend-darken"
+      className="relative h-screen overflow-hidden bg-gradient-to-b from-secondary to-[#2a0810]"
     >
+      {/* Ambient Glow Effect (Maroon) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-[#3b0811]/30 blur-3xl"
+      />
       {/* Content */}
       <div className="relative z-20 container h-full flex items-center justify-center">
         <div className="mx-auto max-w-3xl text-center">
@@ -73,7 +78,7 @@ export function Landing() {
           >
             <Badge
               variant="secondary"
-              className="mb-4 bg-primary/20 backdrop-blur-sm border-primary text-primary hover:bg-primary/30"
+              className="mb-4 backdrop-blur-sm border-muted text-muted bg-muted/20"
             >
               Frontend Developer
             </Badge>
@@ -90,7 +95,7 @@ export function Landing() {
                 size="icon"
                 variant="ghost"
                 asChild
-                className="text-primary hover:bg-transparent"
+                className="text-muted/80 hover:bg-transparent hover:text-muted"
               >
                 <a
                   href="https://github.com/mahendrajatichela"
@@ -106,7 +111,7 @@ export function Landing() {
                 size="icon"
                 variant="ghost"
                 asChild
-                className="text-primary hover:bg-transparent"
+                className="text-muted/80 hover:bg-transparent hover:text-muted"
               >
                 <a
                   href="https://www.linkedin.com/in/chela-mahendrajati/"
@@ -122,7 +127,7 @@ export function Landing() {
                 size="icon"
                 variant="ghost"
                 asChild
-                className="text-primary hover:bg-transparent"
+                className="text-muted/80 hover:bg-transparent hover:text-muted"
               >
                 <a href="mailto:chelamahendra@gmail.com">
                   <Mail className="h-5 w-5" />
@@ -145,8 +150,7 @@ export function Landing() {
                   className="bg-transparent hover:bg-gradient-to-br hover:from-primary hover:via-red-950 hover:to-primary text-muted/70 hover:text-white shadow-none hover:shadow-primary/40 hover:shadow-xl hover:border hover:border-primary/50"
                 >
                   <a href="#projects">
-                    Let's Go{" "}
-                    <ArrowRight className="ml-2 h-4 w-4 rotate-90" />
+                    Let's Go <ArrowRight className="ml-2 h-4 w-4 rotate-90" />
                   </a>
                 </Button>
               </MagneticCursor>

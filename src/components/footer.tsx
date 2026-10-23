@@ -33,18 +33,14 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-[#120507] via-[#0d0d11] to-[#08080a] text-slate-300 pt-16 pb-12">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-[#161619] via-[#121215] to-[#0d0d10] text-slate-300 pt-16 pb-12">
       {/* Decorative Top Border: Tri-color Gradient (Merah, Emas, Abu) */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-700 via-amber-400 to-slate-500 opacity-90 shadow-[0_0_12px_rgba(245,158,11,0.4)]" />
 
-      {/* Ambient background glows: Red and Gold */}
+      {/* Ambient background glow: Maroon */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-red-600/10 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 right-1/4 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-[#3b0811]/20 blur-3xl"
       />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">

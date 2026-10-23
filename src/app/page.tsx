@@ -13,6 +13,8 @@ import StickyCursor from "../components/StickyCursor";
 import { Play } from "../components/pages/play-with-me";
 import { Landing } from "../components/pages/new-theme/landing";
 import { Contact } from "../components/pages/new-theme/contact";
+import { Projects } from "../components/pages/new-theme/projects";
+import { Skills } from "../components/pages/new-theme/skills";
 
 export default function Home() {
   useEffect(() => {
@@ -37,10 +39,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#1a1a1e]">
       <StickyCursor />
       <Header />
       <Landing />
+      <Projects />
+      <Skills />
       <Contact />
       {/* <Hero />
       <Profile />
