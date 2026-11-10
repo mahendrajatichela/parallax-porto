@@ -32,7 +32,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-[#1a1a1e] to-[#2a0810] text-slate-100"
+      className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-slate-50 to-rose-50 dark:from-[#1a1a1e] dark:to-[#2a0810] text-slate-900 dark:text-slate-100"
     >
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-12 md:mb-16">
@@ -84,7 +84,7 @@ export function Skills() {
                   <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary via-amber-400 to-yellow-300 bg-clip-text text-transparent mb-3">
                     {skill.title}
                   </h3>
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                     {skill.description}
                   </p>
                 </div>

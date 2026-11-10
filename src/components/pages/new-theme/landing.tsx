@@ -16,7 +16,7 @@ export function Landing() {
   return (
     <section
       ref={container}
-      className="relative h-screen overflow-hidden bg-gradient-to-b from-secondary to-[#2a0810]"
+      className="relative h-screen overflow-hidden bg-gradient-to-b from-slate-50 to-rose-50 dark:from-secondary dark:to-[#2a0810]"
     >
       {/* Ambient Glow Effect (Maroon) */}
       <div

@@ -107,7 +107,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 md:py-32 bg-gradient-to-b from-[#2a0810] to-[#1a1a1e] text-slate-100"
+      className="py-24 md:py-32 bg-gradient-to-b from-rose-50 to-slate-50 dark:from-[#2a0810] dark:to-[#1a1a1e] text-slate-900 dark:text-slate-100"
     >
       <div className="mx-auto md:w-3/4">
         <div className="text-center">
@@ -131,12 +131,12 @@ export function Projects() {
                 viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <AccordionItem key={project.id} value={project.id} className="border-slate-800/80">
-                  <AccordionTrigger className="relative isolate my-2 overflow-hidden w-full py-3 px-5 rounded-full text-slate-200 transition-all duration-300 hover:text-amber-200 hover:no-underline aria-expanded:text-amber-300 aria-expanded:shadow-md aria-expanded:shadow-red-950/20 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-red-800/40 before:via-amber-500/20 before:to-slate-700/40 aria-expanded:before:from-red-800/60 aria-expanded:before:via-amber-500/30 aria-expanded:before:to-slate-700/50 before:origin-left before:scale-x-0 hover:before:scale-x-100 aria-expanded:before:scale-x-100 before:transition-all before:duration-500 before:ease-out [&_[data-slot=accordion-trigger-icon]]:transition-colors [&_[data-slot=accordion-trigger-icon]]:text-slate-400 [&_[data-slot=accordion-trigger-icon]]:group-hover/accordion-trigger:text-amber-300 [&_[data-slot=accordion-trigger-icon]]:group-aria-expanded/accordion-trigger:text-amber-400">
+                <AccordionItem key={project.id} value={project.id} className="border-slate-200 dark:border-slate-800/80">
+                  <AccordionTrigger className="relative isolate my-2 overflow-hidden w-full py-3 px-5 rounded-full text-slate-700 dark:text-slate-200 transition-all duration-300 hover:text-amber-700 dark:hover:text-amber-200 hover:no-underline aria-expanded:text-amber-700 dark:aria-expanded:text-amber-300 aria-expanded:shadow-md aria-expanded:shadow-red-100/20 dark:aria-expanded:shadow-red-950/20 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-red-200/40 before:via-amber-200/20 before:to-slate-200/40 dark:before:from-red-800/40 dark:before:via-amber-500/20 dark:before:to-slate-700/40 aria-expanded:before:from-red-200/60 aria-expanded:before:via-amber-200/30 aria-expanded:before:to-slate-200/50 dark:aria-expanded:before:from-red-800/60 dark:aria-expanded:before:via-amber-500/30 dark:aria-expanded:before:to-slate-700/50 before:origin-left before:scale-x-0 hover:before:scale-x-100 aria-expanded:before:scale-x-100 before:transition-all before:duration-500 before:ease-out [&_[data-slot=accordion-trigger-icon]]:transition-colors [&_[data-slot=accordion-trigger-icon]]:text-slate-400 dark:[&_[data-slot=accordion-trigger-icon]]:text-slate-400 [&_[data-slot=accordion-trigger-icon]]:group-hover/accordion-trigger:text-amber-600 dark:[&_[data-slot=accordion-trigger-icon]]:group-hover/accordion-trigger:text-amber-300 [&_[data-slot=accordion-trigger-icon]]:group-aria-expanded/accordion-trigger:text-amber-600 dark:[&_[data-slot=accordion-trigger-icon]]:group-aria-expanded/accordion-trigger:text-amber-400">
                     {project.title}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="py-3 px-5 rounded-xl bg-slate-900/60 border border-amber-400/25 text-slate-300">
+                    <div className="py-3 px-5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-amber-400/25 text-slate-600 dark:text-slate-300">
                       {project.description}
                     </div>
                   </AccordionContent>

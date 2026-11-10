@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Montserrat, Space_Grotesk, Arimo } from "next/font/google"
 import "./globals.css"
+import { ThemeProvider } from "../context/theme-context"
 
 const inter = Inter({ subsets: ["latin"] })
 const montserrat = Montserrat({
@@ -24,14 +25,30 @@ export const metadata: Metadata = {
   },
 }
 
+const themeScript = `
+  try {
+    var saved = localStorage.getItem('porche_theme');
+    if (saved === 'dark') document.documentElement.classList.add('dark');
+    else if (saved === 'light') document.documentElement.classList.remove('dark');
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+  } catch(e) {}
+`
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${spaceGrotesk.variable} ${arimo.variable}`}>
-      <body className={`${inter.className} font-space-grotesk`}>{children}</body>
+    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${spaceGrotesk.variable} ${arimo.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body suppressHydrationWarning className={`${inter.className} font-space-grotesk`}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

@@ -17,7 +17,7 @@ import { Projects } from "../components/pages/new-theme/projects";
 import { Skills } from "../components/pages/new-theme/skills";
 
 import { LanguageProvider } from "../context/language-context";
-import { LanguageToggle } from "../components/LanguageToggle";
+import { SettingsToggle } from "../components/SettingsToggle";
 
 export default function Home() {
   useEffect(() => {
@@ -43,9 +43,9 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <main className="min-h-screen bg-[#1a1a1e]">
+      <main className="min-h-screen bg-background">
         <StickyCursor />
-        <LanguageToggle />
+        <SettingsToggle />
         <Header />
         <Landing />
         <Projects />

@@ -35,7 +35,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-[#161619] via-[#121215] to-[#0d0d10] text-slate-300 pt-16 pb-12">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-slate-100 via-slate-100 to-slate-200 dark:from-[#161619] dark:via-[#121215] dark:to-[#0d0d10] text-slate-600 dark:text-slate-300 pt-16 pb-12">
       {/* Decorative Top Border: Tri-color Gradient (Merah, Emas, Abu) */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-700 via-amber-400 to-slate-500 opacity-90 shadow-[0_0_12px_rgba(245,158,11,0.4)]" />
 
@@ -46,7 +46,7 @@ export function Footer() {
       />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex sm:flex-row flex-col gap-4 justify-between pb-12 border-b border-slate-800/80">
+        <div className="flex sm:flex-row flex-col gap-4 justify-between pb-12 border-b border-slate-200 dark:border-slate-800/80">
           {/* Brand & Tagline */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
@@ -58,11 +58,11 @@ export function Footer() {
                 Portfolio
               </span>
             </div>
-            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
               {t.footer.tagline}
             </p>
             {/* Status Indicator */}
-            <div className="inline-flex items-center gap-2 text-xs text-slate-400 bg-zinc-900/80 border border-slate-800 rounded-full px-3 py-1.5 shadow-inner">
+            <div className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-zinc-900/80 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1.5 shadow-inner">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
@@ -87,7 +87,7 @@ export function Footer() {
                         target={social.href.startsWith("http") ? "_blank" : undefined}
                         rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         aria-label={social.name}
-                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900/90 border border-slate-700/60 text-slate-400 hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-950/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.25)]"
+                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-slate-700/60 text-slate-500 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-50/40 dark:hover:bg-red-950/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.25)]"
                       >
                         <Icon className="h-4 w-4" />
                       </a>
@@ -101,7 +101,7 @@ export function Footer() {
             <MagneticCursor>
               <button
                 onClick={scrollToTop}
-                className="inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium bg-zinc-900/90 border border-slate-700/60 text-slate-300 hover:text-amber-300 hover:border-red-500/50 hover:bg-red-950/30 shadow-sm"
+                className="inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium bg-white/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-red-400/50 dark:hover:border-red-500/50 hover:bg-red-50/30 dark:hover:bg-red-950/30 shadow-sm"
               >
                 <span>{t.footer.backToTop}</span>
                 <ArrowUp className="h-3.5 w-3.5 text-amber-400" />
@@ -111,7 +111,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
             <span>© 2026</span>
             <span className="font-semibold text-amber-400">Chela Mahendrajati</span>
@@ -119,10 +119,10 @@ export function Footer() {
             <span>{t.footer.allRightsReserved}</span>
           </p>
 
-          <p className="flex items-center gap-1 text-slate-400">
+          <p className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
             <span>{t.footer.builtWith}</span>
             <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500" />
-            <span className="text-slate-300 font-medium">Next.js, Tailwind CSS, and shadcn/ui.</span>
+            <span className="text-slate-600 dark:text-slate-300 font-medium">Next.js, Tailwind CSS, and shadcn/ui.</span>
           </p>
         </div>
       </div>

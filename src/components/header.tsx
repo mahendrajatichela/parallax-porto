@@ -45,7 +45,7 @@ export function Header() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed top-3 left-0 z-50 rounded-full w-[95%] left-[2.5%] bg-secondary/45 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+          className="fixed top-3 left-0 z-50 rounded-full w-[95%] left-[2.5%] bg-secondary/45 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.3)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
         >
           {/* Ambient subtle glow: Red and Gold */}
           <div
@@ -77,7 +77,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative px-3 py-1.5 text-sm font-medium text-slate-300 hover:text-amber-300 rounded-lg hover:bg-zinc-900/60 border border-transparent hover:border-slate-700/60 transition-all duration-200"
+                  className="group relative px-3 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 rounded-lg hover:bg-zinc-100/60 dark:hover:bg-zinc-900/60 border border-transparent hover:border-slate-300/60 dark:hover:border-slate-700/60 transition-all duration-200"
                 >
                   <span className="flex items-center gap-1.5">
                     <span className="h-1 w-1 rounded-full bg-red-500 group-hover:bg-amber-400 transition-colors" />
@@ -89,7 +89,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden flex items-center justify-center h-10 w-10 rounded-xl bg-zinc-900/90 border border-slate-700/60 text-slate-300 hover:text-amber-300 hover:border-amber-400/50 hover:bg-red-950/40 transition-colors"
+              className="md:hidden flex items-center justify-center h-10 w-10 rounded-xl bg-white/90 dark:bg-zinc-900/90 border border-slate-300/60 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/50 hover:bg-red-50/40 dark:hover:bg-red-950/40 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
             >
@@ -99,13 +99,13 @@ export function Header() {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-slate-800/80 bg-[#0d090b]/95 backdrop-blur-xl">
+            <div className="md:hidden border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-[#0d090b]/95 backdrop-blur-xl">
               <nav className="container mx-auto px-4 flex flex-col gap-2 py-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="flex items-center gap-2.5 px-3 py-2 text-sm font-medium text-slate-300 hover:text-amber-300 hover:bg-zinc-900/80 rounded-lg border border-transparent hover:border-slate-800 transition-colors"
+                    className="flex items-center gap-2.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:bg-zinc-100/80 dark:hover:bg-zinc-900/80 rounded-lg border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
