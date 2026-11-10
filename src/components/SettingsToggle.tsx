@@ -6,12 +6,12 @@ import { Settings, Sun, Moon, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-// Light mode: maroon (#800000). Dark mode: amber glow.
+// Light mode: solid maroon (#800000) button, white icon. Dark mode: amber glow.
 const iconClass =
-  "text-[#800000] drop-shadow-[0_0_6px_rgba(128,0,0,0.35)] dark:text-amber-300 dark:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]";
+  "text-white drop-shadow-[0_0_4px_rgba(0,0,0,0.3)] dark:text-amber-300 dark:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]";
 
 const surfaceClass =
-  "bg-[#800000]/10 hover:bg-[#800000]/20 border border-[#800000]/50 hover:border-[#800000] " +
+  "bg-[#800000] hover:bg-[#5c0000] border border-[#800000] hover:border-[#5c0000] " +
   "dark:bg-muted/30 dark:hover:bg-muted/50 dark:border-amber-400/40 dark:hover:border-amber-400 " +
   "backdrop-blur-md flex items-center justify-center transition-colors duration-300";
 
