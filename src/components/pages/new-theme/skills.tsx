@@ -26,13 +26,22 @@ const skills = [
 
 import { useLanguage } from "@/src/context/language-context";
 import { SectionHeading } from "./section-heading";
+import { PixelIcon, type PixelIconName } from "./pixel-icon";
+
+// Same order as t.skills.items
+const skillMeta: { icon: PixelIconName; code: string }[] = [
+  { icon: "terminal", code: "STK" },
+  { icon: "layout", code: "UIX" },
+  { icon: "wrench", code: "DEV" },
+  { icon: "database", code: "STM" },
+];
 
 export function Skills() {
   const { t } = useLanguage();
 
   return (
     <section id="skills" className="bg-background py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <SectionHeading index="03" label={t.nav.skills} title={t.skills.title} subtitle={t.skills.subtitle} />
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-l border-foreground/30 bg-grid">
@@ -45,10 +54,16 @@ export function Skills() {
               transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
               className="group border-b border-r border-foreground/30 p-6 md:p-10 transition-colors hover:bg-background/70"
             >
-              <span className="font-mono text-xs text-muted-foreground">
-                [{String(index + 1).padStart(2, "0")}]
+              <span className="font-mono text-xs md:text-sm tracking-widest text-muted-foreground">
+                [ {String(index + 1).padStart(2, "0")} / {skillMeta[index]?.code} ]
               </span>
-              <h3 className="mt-4 font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+              {skillMeta[index] && (
+                <PixelIcon
+                  name={skillMeta[index].icon}
+                  className="mt-8 text-foreground group-hover:text-primary"
+                />
+              )}
+              <h3 className="mt-8 font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                 {skill.title}
               </h3>
               <p className="mt-3 font-mono text-sm md:text-base leading-relaxed text-muted-foreground">
