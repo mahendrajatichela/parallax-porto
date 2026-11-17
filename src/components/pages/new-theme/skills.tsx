@@ -25,72 +25,37 @@ const skills = [
 ];
 
 import { useLanguage } from "@/src/context/language-context";
+import { SectionHeading } from "./section-heading";
 
 export function Skills() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="skills"
-      className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-slate-50 to-rose-50 dark:from-[#1a1a1e] dark:to-[#2a0810] text-slate-900 dark:text-slate-100"
-    >
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="text-center mb-12 md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-red-500 via-amber-400 to-amber-200 bg-clip-text text-transparent"
-          >
-            {t.skills.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-sm sm:text-base md:text-lg text-amber-400/90 font-medium mt-2"
-          >
-            {t.skills.subtitle}
-          </motion.p>
-        </div>
+    <section id="skills" className="bg-background py-24 md:py-32 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+        <SectionHeading index="03" label={t.nav.skills} title={t.skills.title} subtitle={t.skills.subtitle} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto">
-          {t.skills.items.map((skill, index) => {
-            const borderClasses =
-              index === 0
-                ? "border-b md:border-r border-amber-400/60 pb-8 md:pb-12 md:pr-12"
-                : index === 1
-                  ? "border-b border-amber-400/60 py-8 md:py-0 md:pb-12 md:pl-12"
-                  : index === 2
-                    ? "border-b md:border-b-0 md:border-r border-amber-400/60 py-8 md:py-0 md:pt-12 md:pr-12"
-                    : "pt-8 md:pt-12 md:pl-12";
-
-            return (
-              <motion.div
-                key={skill.title}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.15 + index * 0.1,
-                  ease: "easeOut",
-                }}
-                className={`flex flex-col justify-start ${borderClasses}`}
-              >
-                <div className="px-5 pt-2">
-                  <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary via-amber-400 to-yellow-300 bg-clip-text text-transparent mb-3">
-                    {skill.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                    {skill.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-l border-foreground/30 bg-grid">
+          {t.skills.items.map((skill, index) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+              className="group border-b border-r border-foreground/30 p-6 md:p-10 transition-colors hover:bg-background/70"
+            >
+              <span className="font-mono text-xs text-muted-foreground">
+                [{String(index + 1).padStart(2, "0")}]
+              </span>
+              <h3 className="mt-4 font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                {skill.title}
+              </h3>
+              <p className="mt-3 font-mono text-sm md:text-base leading-relaxed text-muted-foreground">
+                {skill.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

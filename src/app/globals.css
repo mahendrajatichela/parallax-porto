@@ -5,49 +5,52 @@
 @tailwind utilities;
 
 @layer base {
+  /* Editorial "paper" theme: cream background, maroon ink */
   :root {
-    --background: 0 0% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 0 100% 22.7%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 93%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 48 97% 48%;
-    --muted-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --background: 42 35% 88%;          /* #EAE3D2 cream paper */
+    --foreground: 0 75% 18%;           /* deep maroon ink */
+    --card: 42 38% 91%;
+    --card-foreground: 0 75% 18%;
+    --popover: 42 38% 91%;
+    --popover-foreground: 0 75% 18%;
+    --primary: 0 100% 25%;             /* #800000 maroon */
+    --primary-foreground: 42 35% 92%;
+    --secondary: 0 75% 18%;            /* solid ink block (e.g. theme button) */
+    --secondary-foreground: 42 35% 92%;
+    --muted: 40 25% 83%;
+    --muted-foreground: 0 30% 32%;     /* soft maroon-brown for body copy */
+    --accent: 40 28% 82%;
+    --accent-foreground: 0 100% 25%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --border: 35 18% 70%;
+    --input: 35 18% 70%;
+    --ring: 0 100% 25%;
+    --grid-line: 35 18% 60%;
+    --radius: 0rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 0 100% 22.7%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 195 4.3% 36.5%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 41 75.1% 62.2%;
-    --muted-foreground: 210 40% 98%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 25 14% 8%;           /* warm near-black */
+    --foreground: 0 55% 78%;           /* light maroon/rose ink for contrast */
+    --card: 25 12% 11%;
+    --card-foreground: 0 55% 78%;
+    --popover: 25 12% 11%;
+    --popover-foreground: 0 55% 78%;
+    --primary: 0 60% 62%;              /* lifted maroon, readable on dark */
+    --primary-foreground: 25 14% 8%;
+    --secondary: 0 55% 78%;
+    --secondary-foreground: 25 14% 8%;
+    --muted: 25 10% 14%;
+    --muted-foreground: 0 18% 62%;
+    --accent: 25 10% 16%;
+    --accent-foreground: 0 60% 62%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 25 8% 24%;
+    --input: 25 8% 24%;
+    --ring: 0 60% 62%;
+    --grid-line: 25 8% 30%;
   }
 }
 
@@ -56,8 +59,24 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    
+    @apply bg-background text-foreground antialiased;
+  }
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer utilities {
+  /* Faint blueprint grid, as in the reference */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--grid-line) / 0.25) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--grid-line) / 0.25) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .font-display {
+    font-family: "Helvetica Neue", Helvetica, Arial, var(--font-arimo), sans-serif;
   }
 }
 

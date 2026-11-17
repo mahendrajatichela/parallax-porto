@@ -1,158 +1,110 @@
 "use client";
 
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import MagneticCursor from "../../MagneticCursor";
 import { useLanguage } from "@/src/context/language-context";
 
+const socials = [
+  { label: "GitHub", href: "https://github.com/mahendrajatichela", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/chela-mahendrajati/", icon: Linkedin },
+  { label: "Email", href: "mailto:chelamahendra@gmail.com", icon: Mail },
+];
+
+/** Small L-shaped corner marks framing the stage, like a viewfinder. */
+function Corner({ className }: { className: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute h-8 w-8 border-foreground/50 ${className}`}
+    />
+  );
+}
+
 export function Landing() {
-  const container = useRef(null);
   const { t } = useLanguage();
 
   return (
-    <section
-      ref={container}
-      className="relative h-screen overflow-hidden bg-gradient-to-b from-slate-50 to-rose-50 dark:from-secondary dark:to-[#2a0810]"
-    >
-      {/* Ambient Glow Effect (Maroon) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-[#3b0811]/30 blur-3xl"
-      />
-      {/* Content */}
-      <div className="relative z-20 container h-full flex items-center justify-center">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* Overlapping Text & Image Container */}
-          <hr className="border-primary mt-20 w-full" />
-          <div className="relative flex justify-center my-6 py-4 w-full">
-            {/* Background Layer: Big Typography */}
-            <motion.h1
-              className="absolute -top-28 z-20 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter bg-gradient-to-tr from-primary via-red-950 to-primary bg-clip-text text-transparent select-none font-montserrat"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              MAHENDRAJATI CHELA
-            </motion.h1>
+    <section id="about" className="relative bg-background pt-28 md:pt-40 pb-16">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-center font-bold uppercase leading-[0.9] tracking-[-0.04em] text-foreground text-[10.5vw] md:text-[9vw] xl:text-[8.5rem]"
+        >
+          Mahendrajati Chela
+        </motion.h1>
 
-            {/* Foreground Layer: Overlapping Image */}
-            <motion.div
-              className="relative z-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-            >
-              <div className="relative group overflow-hidden shadow-2xl transition-all duration-500 -rotate-6">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6 md:mt-10 text-center font-mono text-base md:text-xl tracking-wide text-muted-foreground"
+        >
+          Portfolio of a <span className="font-semibold text-primary">{t.landing.role}</span>...
+        </motion.p>
+
+        {/* Stage */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mx-auto mt-12 md:mt-16 max-w-5xl"
+        >
+          <div className="flex items-center justify-between px-2 md:px-12 pb-4 font-mono text-xs md:text-sm text-muted-foreground">
+            <span>Hi, I&apos;m Chela</span>
+            <div className="flex items-center gap-1">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <MagneticCursor key={label}>
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                </MagneticCursor>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative bg-grid border-y border-border/60 px-6 py-10 md:py-14">
+            <Corner className="left-6 md:left-14 top-6 border-l border-t" />
+            <Corner className="right-6 md:right-14 top-6 border-r border-t" />
+            <Corner className="left-6 md:left-14 bottom-6 border-l border-b" />
+            <Corner className="right-6 md:right-14 bottom-6 border-r border-b" />
+
+            <div className="flex flex-col items-center">
+              <div className="group relative overflow-hidden">
                 <Image
                   src="/images/bnw.jpeg"
                   alt="Mahendrajati Chela"
                   width={280}
                   height={350}
-                  className="w-40 h-52 sm:w-52 sm:h-64 md:w-60 md:h-72 object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   priority
+                  className="h-64 w-52 md:h-80 md:w-64 object-cover grayscale contrast-110 sepia-[.25] mix-blend-multiply dark:mix-blend-normal transition-all duration-500 group-hover:grayscale-0 group-hover:sepia-0"
                 />
               </div>
-            </motion.div>
-            <motion.h1
-              className="absolute bottom-0 z-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-arimo font-black tracking-wider whitespace-nowrap bg-gradient-to-tr from-muted via-muted/50 to-muted bg-clip-text text-transparent select-none"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              PORTOFOLIO
-            </motion.h1>
+
+              <p className="mt-8 font-mono text-2xl md:text-4xl font-medium tracking-[0.6em] text-primary pl-[0.6em]">
+                PORTFOLIO
+              </p>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Badge
-              variant="secondary"
-              className="mb-4 backdrop-blur-sm border-muted text-muted bg-muted/20"
-            >
-              {t.landing.role}
-            </Badge>
-          </motion.div>
-
-          <motion.div
-            className="flex gap-4 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <MagneticCursor>
-              <Button
-                size="icon"
-                variant="ghost"
-                asChild
-                className="text-muted/80 hover:bg-transparent hover:text-muted"
-              >
-                <a
-                  href="https://github.com/mahendrajatichela"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
-            </MagneticCursor>
-            <MagneticCursor>
-              <Button
-                size="icon"
-                variant="ghost"
-                asChild
-                className="text-muted/80 hover:bg-transparent hover:text-muted"
-              >
-                <a
-                  href="https://www.linkedin.com/in/chela-mahendrajati/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-            </MagneticCursor>
-            <MagneticCursor>
-              <Button
-                size="icon"
-                variant="ghost"
-                asChild
-                className="text-muted/80 hover:bg-transparent hover:text-muted"
-              >
-                <a href="mailto:chelamahendra@gmail.com">
-                  <Mail className="h-5 w-5" />
-                </a>
-              </Button>
-            </MagneticCursor>
-          </motion.div>
-
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <MagneticCursor>
-                <Button
-                  size="lg"
-                  asChild
-                  className="bg-transparent hover:bg-gradient-to-br hover:from-primary hover:via-red-950 hover:to-primary text-muted/70 hover:text-white shadow-none hover:shadow-primary/40 hover:shadow-xl hover:border hover:border-primary/50"
-                >
-                  <a href="#projects">
-                    {t.landing.letsGo} <ArrowRight className="ml-2 h-4 w-4 rotate-90" />
-                  </a>
-                </Button>
-              </MagneticCursor>
-            </motion.div>
+          <div className="flex items-center justify-between px-2 md:px-12 pt-4 font-mono text-[11px] md:text-xs uppercase tracking-widest text-muted-foreground">
+            <a href="#projects" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <ArrowDown className="h-3.5 w-3.5" />
+              {t.landing.letsGo}
+            </a>
+            <span>01 / 04</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

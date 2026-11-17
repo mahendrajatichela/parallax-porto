@@ -1,125 +1,69 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Mail, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { ArrowUpRight, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import MagneticCursor from "../../MagneticCursor";
-
 import { useLanguage } from "@/src/context/language-context";
+import { SectionHeading } from "./section-heading";
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/mahendrajatichela", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/chela-mahendrajati", icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/chelaaaa_", icon: Instagram },
+];
 
 export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="contact"
-      className="py-24 md:py-32 bg-gradient-to-b from-rose-50 to-slate-50 dark:from-[#2a0810] dark:to-[#161619] text-slate-900 dark:text-slate-100"
-    >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-primary via-amber-400 to-yellow-300 bg-clip-text text-transparent">
-            {t.contact.title}
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            {t.contact.subtitle}
-          </p>
-        </div>
+    <section id="contact" className="bg-background py-24 md:py-32 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+        <SectionHeading index="04" label={t.nav.contact} title={t.contact.title} subtitle={t.contact.subtitle} />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
+          className="mt-12 md:mt-16 border border-foreground/30 bg-grid p-6 md:p-12"
         >
-          <Card className="shadow-xl bg-gradient-to-br from-white via-rose-50 to-red-50 dark:from-[#2f0a10] dark:via-red-950 dark:to-[#180407] backdrop-blur-md border border-amber-400/30">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-300 bg-clip-text text-transparent">
-                {t.contact.cardTitle}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex justify-center">
-                <MagneticCursor>
-                  <Button
-                    size="lg"
-                    asChild
-                    className="bg-gradient-to-r from-primary via-red-950 to-primary text-amber-300 border border-amber-400/40 hover:border-amber-400 hover:text-white shadow-lg transition-all"
-                  >
-                    <a href="mailto:chelamahendra@gmail.com">
-                      <Mail className="mr-2 h-5 w-5 text-amber-400" />
-                      {t.contact.sendEmail}
-                    </a>
-                  </Button>
-                </MagneticCursor>
-              </div>
+          <p className="font-display text-2xl md:text-4xl font-bold tracking-tight text-foreground">
+            {t.contact.cardTitle}
+          </p>
 
-              <div className="border-t border-slate-200 dark:border-slate-700/60 pt-6">
-                <p className="text-center text-sm text-slate-500 dark:text-slate-400 mb-4">
-                  {t.contact.socialText}
-                </p>
-                <div className="flex justify-center gap-4">
-                  <MagneticCursor>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-50/40 dark:hover:bg-red-950/40 transition-colors"
-                      asChild
+          <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <MagneticCursor>
+              <a
+                href="mailto:chelamahendra@gmail.com"
+                className="inline-flex w-fit items-center gap-6 bg-primary px-6 py-4 font-mono text-base font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+              >
+                <Mail className="h-5 w-5" />
+                {t.contact.sendEmail}
+                <ArrowUpRight className="h-5 w-5" />
+              </a>
+            </MagneticCursor>
+
+            <div className="flex flex-col gap-3 md:items-end">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                {t.contact.socialText}
+              </p>
+              <div className="flex gap-3">
+                {socials.map(({ label, href, icon: Icon }) => (
+                  <MagneticCursor key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-12 w-12 items-center justify-center border border-foreground/40 text-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
                     >
-                      <a
-                        href="https://github.com/mahendrajatichela"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
-                    </Button>
+                      <Icon className="h-5 w-5" />
+                    </a>
                   </MagneticCursor>
-                  <MagneticCursor>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-50/40 dark:hover:bg-red-950/40 transition-colors"
-                      asChild
-                    >
-                      <a
-                        href="https://www.linkedin.com/in/chela-mahendrajati"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                    </Button>
-                  </MagneticCursor>
-                  <MagneticCursor>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-50/40 dark:hover:bg-red-950/40 transition-colors"
-                      asChild
-                    >
-                      <a
-                        href="https://www.instagram.com/chelaaaa_"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                      >
-                        <Instagram className="h-5 w-5" />
-                      </a>
-                    </Button>
-                  </MagneticCursor>
-                </div>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

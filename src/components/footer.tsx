@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles } from "lucide-react"
+import { Github, Linkedin, Instagram, Mail, ArrowUp, Heart } from "lucide-react"
 import MagneticCursor from "./MagneticCursor"
 import { useLanguage } from "../context/language-context"
 
@@ -35,49 +35,35 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-slate-100 via-slate-100 to-slate-200 dark:from-[#161619] dark:via-[#121215] dark:to-[#0d0d10] text-slate-600 dark:text-slate-300 pt-16 pb-12">
-      {/* Decorative Top Border: Tri-color Gradient (Merah, Emas, Abu) */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-700 via-amber-400 to-slate-500 opacity-90 shadow-[0_0_12px_rgba(245,158,11,0.4)]" />
-
-      {/* Ambient background glow: Maroon */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-[#3b0811]/20 blur-3xl"
-      />
-
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex sm:flex-row flex-col gap-4 justify-between pb-12 border-b border-slate-200 dark:border-slate-800/80">
+    <footer className="bg-background border-t border-foreground/30 pt-16 pb-28 md:pb-12">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+        <div className="flex flex-col gap-10 md:flex-row md:justify-between pb-12 border-b border-border">
           {/* Brand & Tagline */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="text-3xl font-black font-montserrat tracking-tight bg-gradient-to-r from-red-500 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-                PorChe
-              </span>
-              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-950/70 border border-red-500/30 text-amber-300">
-                <Sparkles className="w-3 h-3 text-amber-400" />
-                Portfolio
-              </span>
+          <div className="space-y-5">
+            <div className="flex items-center gap-3 text-primary">
+              <span className="font-display text-4xl font-bold tracking-tight">porche</span>
+              <span aria-hidden="true" className="h-6 w-px bg-border" />
+              <span className="font-mono tracking-[0.15em]">PRTFL</span>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
+            <p className="max-w-md font-mono text-sm leading-relaxed text-muted-foreground">
               {t.footer.tagline}
             </p>
-            {/* Status Indicator */}
-            <div className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-zinc-900/80 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1.5 shadow-inner">
+            <div className="inline-flex items-center gap-2 border border-foreground/30 px-3 py-1.5 font-mono text-xs text-foreground">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span>{t.footer.status}</span>
+              {t.footer.status}
             </div>
           </div>
 
           {/* Socials & Back to Top */}
-          <div className="space-y-4 md:text-right flex flex-col md:items-end justify-between">
+          <div className="flex flex-col gap-6 md:items-end">
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono">
+              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground md:text-right">
                 {t.footer.connectWithMe}
               </h3>
-              <div className="flex gap-2.5 md:justify-end">
+              <div className="flex gap-2.5">
                 {socialLinks.map((social) => {
                   const Icon = social.icon
                   return (
@@ -87,7 +73,7 @@ export function Footer() {
                         target={social.href.startsWith("http") ? "_blank" : undefined}
                         rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         aria-label={social.name}
-                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-slate-700/60 text-slate-500 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-400/60 hover:bg-red-50/40 dark:hover:bg-red-950/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.25)]"
+                        className="flex h-10 w-10 items-center justify-center border border-foreground/40 text-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
                       >
                         <Icon className="h-4 w-4" />
                       </a>
@@ -97,32 +83,28 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Back to top button */}
-            <MagneticCursor>
-              <button
-                onClick={scrollToTop}
-                className="inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium bg-white/90 dark:bg-zinc-900/90 border border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-300 hover:border-red-400/50 dark:hover:border-red-500/50 hover:bg-red-50/30 dark:hover:bg-red-950/30 shadow-sm"
-              >
-                <span>{t.footer.backToTop}</span>
-                <ArrowUp className="h-3.5 w-3.5 text-amber-400" />
-              </button>
-            </MagneticCursor>
+            <button
+              onClick={scrollToTop}
+              className="inline-flex w-fit items-center gap-3 bg-primary px-4 py-2.5 font-mono text-xs font-medium uppercase tracking-widest text-primary-foreground hover:opacity-90 transition-opacity"
+            >
+              {t.footer.backToTop}
+              <ArrowUp className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-          <p className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
+          <p className="flex flex-wrap items-center justify-center gap-1.5 sm:justify-start">
             <span>© 2026</span>
-            <span className="font-semibold text-amber-400">Chela Mahendrajati</span>
-            <span className="text-slate-600">•</span>
+            <span className="font-semibold text-primary">Chela Mahendrajati</span>
+            <span>·</span>
             <span>{t.footer.allRightsReserved}</span>
           </p>
-
-          <p className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+          <p className="flex items-center gap-1.5">
             <span>{t.footer.builtWith}</span>
-            <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500" />
-            <span className="text-slate-600 dark:text-slate-300 font-medium">Next.js, Tailwind CSS, and shadcn/ui.</span>
+            <Heart className="h-3.5 w-3.5 fill-primary text-primary" />
+            <span className="text-foreground">Next.js, Tailwind CSS, and shadcn/ui.</span>
           </p>
         </div>
       </div>

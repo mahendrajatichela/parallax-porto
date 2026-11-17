@@ -63,6 +63,7 @@ const config = {
         montserrat: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
         "space-grotesk": ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
         arimo: ["var(--font-arimo)", "Arimo", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "IBM Plex Mono", "ui-monospace", "monospace"],
       },
       keyframes: {
         "accordion-down": {

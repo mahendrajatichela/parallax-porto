@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
-import { Inter, Montserrat, Space_Grotesk, Arimo } from "next/font/google"
+import { Montserrat, Space_Grotesk, Arimo, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "../context/theme-context"
 
-const inter = Inter({ subsets: ["latin"] })
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -15,6 +14,11 @@ const spaceGrotesk = Space_Grotesk({
 const arimo = Arimo({
   subsets: ["latin"],
   variable: "--font-arimo",
+})
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-mono",
 })
 
 export const metadata: Metadata = {
@@ -40,11 +44,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${spaceGrotesk.variable} ${arimo.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${spaceGrotesk.variable} ${arimo.variable} ${plexMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body suppressHydrationWarning className={`${inter.className} font-space-grotesk`}>
+      <body suppressHydrationWarning className="font-mono">
         <ThemeProvider>
           {children}
         </ThemeProvider>

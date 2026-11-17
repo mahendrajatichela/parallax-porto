@@ -1,15 +1,5 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { FolderGit2 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -100,51 +90,60 @@ const projects = [
 ];
 
 import { useLanguage } from "@/src/context/language-context";
+import { SectionHeading } from "./section-heading";
 
 export function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="projects"
-      className="py-24 md:py-32 bg-gradient-to-b from-rose-50 to-slate-50 dark:from-[#2a0810] dark:to-[#1a1a1e] text-slate-900 dark:text-slate-100"
-    >
-      <div className="mx-auto md:w-3/4">
-        <div className="text-center">
-          <div className="relative">
-            <FolderGit2 className="text-xl text-red-600/40 opacity-50 -top-10 absolute left-[35%] rotate-6 transform -translate-x-1/2 -z-10 w-20 h-20" />
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-red-500 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-              {t.projects.title}
-            </h2>
-          </div>
-        </div>
+    <section id="projects" className="bg-background py-24 md:py-32">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
+        <SectionHeading index="02" label={t.nav.projects} title={t.projects.title} />
 
-        {/* <BezierLine color="#d1d5db" /> */}
-        <br />
-        <div>
-          <Accordion defaultValue={[]} className="pt-5 px-5">
-            {t.projects.items.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <AccordionItem key={project.id} value={project.id} className="border-slate-200 dark:border-slate-800/80">
-                  <AccordionTrigger className="relative isolate my-2 overflow-hidden w-full py-3 px-5 rounded-full text-slate-700 dark:text-slate-200 transition-all duration-300 hover:text-amber-700 dark:hover:text-amber-200 hover:no-underline aria-expanded:text-amber-700 dark:aria-expanded:text-amber-300 aria-expanded:shadow-md aria-expanded:shadow-red-100/20 dark:aria-expanded:shadow-red-950/20 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-red-200/40 before:via-amber-200/20 before:to-slate-200/40 dark:before:from-red-800/40 dark:before:via-amber-500/20 dark:before:to-slate-700/40 aria-expanded:before:from-red-200/60 aria-expanded:before:via-amber-200/30 aria-expanded:before:to-slate-200/50 dark:aria-expanded:before:from-red-800/60 dark:aria-expanded:before:via-amber-500/30 dark:aria-expanded:before:to-slate-700/50 before:origin-left before:scale-x-0 hover:before:scale-x-100 aria-expanded:before:scale-x-100 before:transition-all before:duration-500 before:ease-out [&_[data-slot=accordion-trigger-icon]]:transition-colors [&_[data-slot=accordion-trigger-icon]]:text-slate-400 dark:[&_[data-slot=accordion-trigger-icon]]:text-slate-400 [&_[data-slot=accordion-trigger-icon]]:group-hover/accordion-trigger:text-amber-600 dark:[&_[data-slot=accordion-trigger-icon]]:group-hover/accordion-trigger:text-amber-300 [&_[data-slot=accordion-trigger-icon]]:group-aria-expanded/accordion-trigger:text-amber-600 dark:[&_[data-slot=accordion-trigger-icon]]:group-aria-expanded/accordion-trigger:text-amber-400">
+        <Accordion defaultValue={[]} className="mt-12 md:mt-16 border-t border-foreground/30">
+          {t.projects.items.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+            >
+              <AccordionItem value={project.id} className="border-b border-foreground/30">
+                <AccordionTrigger className="group rounded-none items-center gap-4 md:gap-8 py-5 md:py-7 px-1 text-foreground hover:no-underline hover:text-primary aria-expanded:text-primary transition-colors [&_[data-slot=accordion-trigger-icon]]:size-5 [&_[data-slot=accordion-trigger-icon]]:text-current">
+                  <span className="w-10 shrink-0 font-mono text-xs md:text-sm text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 font-display text-lg md:text-3xl font-bold tracking-tight">
                     {project.title}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="py-3 px-5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-amber-400/25 text-slate-600 dark:text-slate-300">
+                  </span>
+                  <span className="hidden lg:block font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    {project.dateRange}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid gap-6 pb-6 pl-[3.5rem] md:pl-[4.5rem] pr-8 md:grid-cols-[2fr_1fr]">
+                    <p className="font-mono text-sm md:text-base leading-relaxed text-muted-foreground">
                       {project.description}
+                    </p>
+                    <div className="space-y-3 font-mono text-xs">
+                      <p className="uppercase tracking-widest text-muted-foreground">
+                        {project.association} · <span className="lg:hidden">{project.dateRange}</span>
+                      </p>
+                      <ul className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <li key={tech} className="border border-primary/50 px-2 py-1 text-primary">
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
-            ))}
-          </Accordion>
-        </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

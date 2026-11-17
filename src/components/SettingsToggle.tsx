@@ -6,19 +6,15 @@ import { Settings, Sun, Moon, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-// Light mode: solid maroon (#800000) button, white icon. Dark mode: amber glow.
-const iconClass =
-  "text-white drop-shadow-[0_0_4px_rgba(0,0,0,0.3)] dark:text-amber-300 dark:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]";
+// Square ink blocks that match the editorial header buttons.
+const iconClass = "text-secondary-foreground";
 
 const surfaceClass =
-  "bg-[#800000] hover:bg-[#5c0000] border border-[#800000] hover:border-[#5c0000] " +
-  "dark:bg-muted/30 dark:hover:bg-muted/50 dark:border-amber-400/40 dark:hover:border-amber-400 " +
-  "backdrop-blur-md flex items-center justify-center transition-colors duration-300";
+  "bg-secondary hover:bg-primary border border-secondary hover:border-primary " +
+  "flex items-center justify-center transition-colors duration-300";
 
 const actionButtonClass =
-  `relative w-12 h-12 rounded-full gap-1 ${surfaceClass} ` +
-  "shadow-[0_0_14px_rgba(128,0,0,0.25),0_6px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_22px_rgba(128,0,0,0.45),0_6px_20px_rgba(0,0,0,0.25)] " +
-  "dark:shadow-[0_0_16px_rgba(251,191,36,0.3),0_6px_20px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_0_24px_rgba(251,191,36,0.6),0_6px_20px_rgba(0,0,0,0.5)]";
+  `relative w-12 h-12 gap-1 ${surfaceClass} shadow-[0_6px_20px_rgba(0,0,0,0.18)]`;
 
 const actionVariants = {
   hidden: { opacity: 0, y: 16, scale: 0.6 },
@@ -158,12 +154,6 @@ export function SettingsToggle() {
           whileTap={{ scale: 0.95 }}
           className="relative group cursor-grab active:cursor-grabbing"
         >
-          <div
-            aria-hidden="true"
-            className={`absolute inset-0 rounded-full bg-gradient-to-r from-[#800000]/30 via-[#a52a2a]/30 to-[#800000]/20 dark:from-red-600/30 dark:via-amber-400/40 dark:to-yellow-300/40 blur-sm group-hover:scale-105 group-hover:opacity-100 transition-all duration-300 -z-10 pointer-events-none ${
-              open ? "opacity-100" : "opacity-50"
-            }`}
-          />
           <button
             type="button"
             onClick={handleMainClick}
@@ -171,8 +161,8 @@ export function SettingsToggle() {
             aria-controls="settings-menu"
             aria-label={open ? "Close settings" : "Open settings"}
             title="Drag to reposition / Click to open settings"
-            className={`relative w-14 h-14 rounded-full ${surfaceClass} shadow-[0_0_18px_rgba(128,0,0,0.25),0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_0_28px_rgba(128,0,0,0.45),0_8px_30px_rgba(0,0,0,0.25)] dark:shadow-[0_0_20px_rgba(251,191,36,0.3),0_8px_30px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_0_30px_rgba(251,191,36,0.65),0_8px_30px_rgba(0,0,0,0.6)] hover:opacity-100 cursor-grab active:cursor-grabbing ${
-              open ? "opacity-100 border-[#800000] dark:border-amber-400" : "opacity-60 dark:opacity-50"
+            className={`relative w-14 h-14 ${surfaceClass} shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:opacity-100 cursor-grab active:cursor-grabbing ${
+              open ? "opacity-100" : "opacity-70"
             }`}
           >
             <motion.span
