@@ -41,10 +41,10 @@ export function Skills() {
 
   return (
     <section id="skills" className="bg-background py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-6xl px-4 sm:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
         <SectionHeading index="03" label={t.nav.skills} title={t.skills.title} subtitle={t.skills.subtitle} />
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-l border-foreground/30 bg-grid">
+        <div className="mx-auto max-w-[68rem] mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-l border-foreground/30 bg-grid">
           {t.skills.items.map((skill, index) => (
             <motion.div
               key={skill.title}
